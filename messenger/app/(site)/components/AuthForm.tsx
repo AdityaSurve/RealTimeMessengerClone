@@ -9,6 +9,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Loader from "@/app/components/Loader";
 type Variant = "LOGIN" | "REGISTER";
 
 const AuthForm = () => {
@@ -80,7 +81,7 @@ const AuthForm = () => {
   return (
     <div className="mt-8 sm:mx-auto w-1/3">
       <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
-        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        <form className=" space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
             <Input
               id="name"
@@ -108,7 +109,15 @@ const AuthForm = () => {
           />
           <div>
             <Button disabled={isLoading} fullWidth type="submit">
-              {variant === "LOGIN" ? "Sign In" : "Sign Up"}
+              {!isLoading ? (
+                variant === "LOGIN" ? (
+                  "Sign In"
+                ) : (
+                  "Sign Up"
+                )
+              ) : (
+                <Loader width="5" height="5" />
+              )}
             </Button>
           </div>
         </form>
