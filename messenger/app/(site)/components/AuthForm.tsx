@@ -80,8 +80,13 @@ const AuthForm = () => {
   };
   return (
     <div className="mt-8 sm:mx-auto w-1/3">
-      <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
-        <form className=" space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <div className="relative bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
+        {isLoading && (
+          // <div className="absolute w-full h-full top-0 left-0 bg-[#ededed50] flex justify-center items-center z-10">
+          <Loader height="full" width="full" />
+          // </div>
+        )}
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
             <Input
               id="name"
@@ -109,15 +114,7 @@ const AuthForm = () => {
           />
           <div>
             <Button disabled={isLoading} fullWidth type="submit">
-              {!isLoading ? (
-                variant === "LOGIN" ? (
-                  "Sign In"
-                ) : (
-                  "Sign Up"
-                )
-              ) : (
-                <Loader width="5" height="5" />
-              )}
+              {variant === "LOGIN" ? "Sign In" : "Sign Up"}
             </Button>
           </div>
         </form>
