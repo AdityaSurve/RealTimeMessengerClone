@@ -79,7 +79,7 @@ const AuthForm = () => {
       .finally(() => setIsLoading(false));
   };
   return (
-    <div className="mt-8 sm:mx-auto w-1/3">
+    <div className="mt-8 mx-auto w-[90%] md:w-[60%] lg:w-1/3">
       <div className="relative bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
         {isLoading && <Loader height="full" width="full" />}
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
