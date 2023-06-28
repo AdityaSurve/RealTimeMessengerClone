@@ -17,7 +17,12 @@ const Body: React.FC<BodyProps> = ({ initialMessages }) => {
     axios.post(`/api/conversations/${conversationId}/seen`);
   }, [conversationId]);
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="relative flex-1 overflow-y-auto h-full">
+      {messages.length === 0 && (
+        <div className="w-full absolute flex bottom-5 justify-center pb-5 italic text-sm text-gray-500">
+          Enter a message to start a conversation!
+        </div>
+      )}
       {messages.map((message, i) => (
         <MessageBox
           key={message.id}
