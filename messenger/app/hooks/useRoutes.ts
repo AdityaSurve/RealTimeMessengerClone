@@ -4,11 +4,11 @@ import { HiChat } from "react-icons/hi";
 import { HiArrowLeftOnRectangle, HiUsers } from "react-icons/hi2";
 import { signOut } from "next-auth/react";
 import useConversation from "./useConversation";
-import { icons } from "react-icons/lib";
 
 const useRoutes = () => {
   const pathname = usePathname();
   const { conversationId } = useConversation();
+
   const routes = useMemo(
     () => [
       {
@@ -25,13 +25,15 @@ const useRoutes = () => {
       },
       {
         label: "Logout",
-        href: "#",
         onClick: () => signOut(),
+        href: "#",
         icon: HiArrowLeftOnRectangle,
       },
     ],
     [pathname, conversationId]
   );
+
   return routes;
 };
+
 export default useRoutes;

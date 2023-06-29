@@ -1,4 +1,5 @@
 import clsx from "clsx";
+
 interface ButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
   fullWidth?: boolean;
@@ -8,6 +9,7 @@ interface ButtonProps {
   danger?: boolean;
   disabled?: boolean;
 }
+
 const Button: React.FC<ButtonProps> = ({
   type = "button",
   fullWidth,
@@ -49,4 +51,5 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
 export default Button;
