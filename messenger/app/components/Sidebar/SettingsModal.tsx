@@ -119,9 +119,9 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     onUpload={handleUpload}
                     uploadPreset="pgc9ehd5"
                   >
-                    <Button disabled={isLoading} secondary type="button">
-                      Change
-                    </Button>
+                    {/* <Button disabled={isLoading} secondary type="button"> */}
+                    Change
+                    {/* </Button> */}
                   </CldUploadButton>
                 </div>
               </div>
