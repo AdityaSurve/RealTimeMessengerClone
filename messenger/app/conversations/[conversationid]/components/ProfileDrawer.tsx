@@ -54,10 +54,10 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
         isOpen={confirmOpen}
         onClose={() => setConfirmOpen(false)}
       />
-      <Transition.Root show={isOpen} as={Fragment}>
+      <Transition.Root show={isOpen} as={Fragment as any}>
         <Dialog as="div" className="relative z-50" onClose={onClose}>
           <Transition.Child
-            as={Fragment}
+            as={Fragment as any}
             enter="ease-out duration-500"
             enterFrom="opacity-0"
             enterTo="opacity-100"
@@ -72,7 +72,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
             <div className="absolute inset-0 overflow-hidden">
               <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                 <Transition.Child
-                  as={Fragment}
+                  as={Fragment as any}
                   enter="transform transition ease-in-out duration-500"
                   enterFrom="translate-x-full"
                   enterTo="translate-x-0"

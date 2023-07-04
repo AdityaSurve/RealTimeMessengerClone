@@ -1,21 +1,21 @@
 "use client";
 
-import React, { Fragment } from "react";
+import React, { Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { IoClose } from "react-icons/io5";
 
 interface ModalProps {
   isOpen?: boolean;
   onClose: () => void;
-  children: React.ReactNode;
+  children: any;
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
-    <Transition.Root show={isOpen} as={Fragment}>
+    <Transition.Root show={isOpen} as={Fragment as any}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
         <Transition.Child
-          as={Fragment}
+          as={Fragment as any}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
           enterTo="opacity-100"
@@ -47,7 +47,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             "
           >
             <Transition.Child
-              as={Fragment}
+              as={Fragment as any}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               enterTo="opacity-100 translate-y-0 sm:scale-100"
